@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Member extends Model
 {
+    protected $table = 'members';
+
     protected $fillable = [
         'name',
         'email',
-        'phone',
+        'password',
+        'phone_number',
         'address',
     ];
 

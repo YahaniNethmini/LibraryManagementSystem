@@ -11,6 +11,7 @@ class Book extends Model
         'book_name',
         'author_name',
         'isbn',
+        'book_count',
         'published_at',
     ];
 

@@ -11,6 +11,7 @@ class BorrowingRecord extends Model
         'member_id',
         'book_id',
         'borrowed_at',
+        'due_date',
         'returned_at',
     ];
 

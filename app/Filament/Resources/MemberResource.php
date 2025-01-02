@@ -31,7 +31,7 @@ class MemberResource extends Resource
                     ->email()
                     ->required(),
                 Forms\Components\TextInput::make('password'),
-                Forms\Components\TextInput::make('phone')
+                Forms\Components\TextInput::make('phone_number')
                     ->label('Phone')
                     ->required(),
                 Forms\Components\Textarea::make('address')
@@ -85,6 +85,7 @@ class MemberResource extends Resource
             'index' => Pages\ListMembers::route('/'),
             'create' => Pages\CreateMember::route('/create'),
             'edit' => Pages\EditMember::route('/{record}/edit'),
+            'view' => Pages\ViewMember::route('/{record}'),
         ];
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BorrowingRecordResource\Pages;
-use App\Filament\Resources\BorrowingRecordResource\RelationManagers;
 use App\Models\BorrowingRecord;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -32,6 +31,9 @@ class BorrowingRecordResource extends Resource
                 Forms\Components\Datepicker::make('borrowed_at')
                     ->label('Borrowed At')
                     ->required(),
+                Forms\Components\Datepicker::make('due_date')
+                    ->label('Due Date')
+                    ->required(),
                 Forms\Components\Datepicker::make('returned_at')
                     ->label('Returned At'),
             ]);
@@ -51,6 +53,10 @@ class BorrowingRecordResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('borrowed_at')
                     ->label('Borrowed At')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('due_date')
+                    ->label('Due Date')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('returned_at')
@@ -86,6 +92,7 @@ class BorrowingRecordResource extends Resource
             'index' => Pages\ListBorrowingRecords::route('/'),
             'create' => Pages\CreateBorrowingRecord::route('/create'),
             'edit' => Pages\EditBorrowingRecord::route('/{record}/edit'),
+            'view' => Pages\ViewBorrowingRecord::route('/{record}'),
         ];
     }
 }
